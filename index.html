@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>QuickInstall</title>
+        <script defer src="script.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    </head>
+    <body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
+        <!-- Header -->
+        <header class="bg-gray-800 text-white p-4 shadow-md">
+            <div class="max-w-4xl mx-auto flex justify-between items-center">
+                <h1 class="text-xl font-bold flex items-center gap-2">
+                    QuickInstall Generator programs.json
+                </h1>
+                <a href="https://github.com/Rianvy/QuickInstallApp" target="_blank" class="flex items-center gap-2 text-white underline hover:text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path
+                            d="M12 .297C5.373.297 0 5.67 0 12.297c0 5.303 3.438 9.8 8.207 11.387.6.11.793-.26.793-.577v-2.022c-3.338.726-4.033-1.415-4.033-1.415-.546-1.384-1.333-1.753-1.333-1.753-1.09-.745.083-.729.083-.729 1.204.084 1.838 1.236 1.838 1.236 1.07 1.834 2.808 1.304 3.492.998.108-.774.419-1.305.762-1.605-2.665-.303-5.466-1.333-5.466-5.93 0-1.31.467-2.381 1.235-3.222-.124-.303-.535-1.52.117-3.176 0 0 1.007-.322 3.3 1.23.96-.266 1.986-.4 3.006-.404 1.02.005 2.046.138 3.006.404 2.29-1.552 3.295-1.23 3.295-1.23.653 1.657.242 2.874.12 3.176.77.841 1.233 1.912 1.233 3.222 0 4.609-2.805 5.624-5.475 5.921.431.372.816 1.103.816 2.222v3.293c0 .32.192.694.8.577C20.565 22.097 24 17.6 24 12.297 24 5.67 18.627.297 12 .297z"
+                        />
+                    </svg>
+                    GitHub
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow flex flex-col items-center justify-center p-6">
+            <div class="max-w-4xl w-full bg-gray-800 text-gray-100 shadow-md rounded p-6">
+                <h2 class="text-2xl font-bold text-center mb-6">Instructions</h2>
+
+                <!-- Instructions Section -->
+                <div class="mb-8 bg-gray-700 p-4 rounded shadow">
+                    <h3 class="text-lg font-bold mb-2">How to Use</h3>
+                    <ol class="list-decimal ml-5 space-y-2">
+                        <li>Use the <strong>"Add Another Application"</strong> button to add new fields for your application details.</li>
+                        <li>
+                            Fill in the fields:
+                            <ul class="list-disc ml-5">
+                                <li><strong>Application Name:</strong> Required. Enter the name of the application.</li>
+                                <li><strong>32-bit URL:</strong> Optional. Provide the 32-bit version download link if available.</li>
+                                <li><strong>64-bit URL:</strong> Optional. Provide the 64-bit version download link if available.</li>
+                                <li><strong>Arguments:</strong> Optional. Add installation arguments, such as silent install commands.</li>
+                                <li><strong>Tags:</strong> Required. Enter tags separated by commas (e.g., "developer, utility").</li>
+                            </ul>
+                        </li>
+                        <li>Press <strong>"Generate JSON"</strong> to create the JSON output for your applications.</li>
+                        <li>Once the JSON is generated, use the <strong>"Download programs.json"</strong> button to download it.</li>
+                    </ol>
+                </div>
+
+                <!-- Form -->
+                <form id="app-form" class="flex flex-col gap-4">
+                    <div id="app-fields">
+                        <!-- Dynamic application fields will be added here -->
+                    </div>
+                    <button type="button" id="add-app-button" class="p-3 bg-green-500 text-white rounded flex items-center gap-2 justify-center hover:bg-green-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                        Add Another Application
+                    </button>
+                    <button type="submit" class="p-3 bg-blue-500 text-white rounded flex items-center gap-2 justify-center hover:bg-blue-600">
+                        Generate JSON
+                    </button>
+                </form>
+
+                <!-- Output Section -->
+                <div id="output" class="mt-6 p-4 bg-gray-700 text-gray-100 rounded shadow-md">
+                    <h3 class="text-lg font-bold mb-2">Generated JSON:</h3>
+                    <pre id="json-output" class="bg-gray-900 text-white p-4 rounded overflow-x-auto"></pre>
+                    <button id="download-json" class="mt-4 p-3 bg-blue-600 text-white rounded w-full flex items-center justify-center gap-2 hover:bg-blue-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l8 8m0 0l8-8m-8 8V4" />
+                        </svg>
+                        Download programs.json
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white p-4 mt-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="text-sm flex items-center justify-center gap-2">
+                    Made with
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24" stroke-width="0" stroke="currentColor" class="w-5 h-5">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                    </svg>
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
